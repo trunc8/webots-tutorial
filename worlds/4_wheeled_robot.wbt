@@ -3,8 +3,8 @@ WorldInfo {
   basicTimeStep 16
 }
 Viewpoint {
-  orientation -0.39217209145187343 0.902568845719898 0.17768097653410833 0.9304518172858955
-  position 1.6222087319131817 1.2428467463884367 1.4864831379235857
+  orientation -0.25656974350984657 0.9426996212036863 0.21328242050792193 1.4453473419619063
+  position 1.7052762198832383 0.8791116582867761 0.2754793092375422
 }
 TexturedBackground {
 }
@@ -28,52 +28,6 @@ WoodenBox {
   translation -0.404656 0.05 0.340787
   name "wooden box(1)"
   size 0.1 0.1 0.1
-}
-E-puck {
-  controller "epuck_avoid_collision"
-}
-DEF BALL_1 Solid {
-  translation 0 0.2 -0.2
-  children [
-    Shape {
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "textures/red_brick_wall.jpg"
-          ]
-        }
-        roughness 1
-        metalness 0
-      }
-      geometry DEF BALL_GEOMETRY Sphere {
-        radius 0.05
-        subdivision 2
-      }
-    }
-  ]
-  name "ball_1"
-  boundingObject USE BALL_GEOMETRY
-  physics Physics {
-  }
-}
-DEF BALL_2 Solid {
-  translation 0 0.2 0.2
-  children [
-    DEF BALL_SHAPE Shape {
-      appearance PBRAppearance {
-        roughness 0.5
-        metalness 0.5
-      }
-      geometry Sphere {
-        radius 0.05
-        subdivision 2
-      }
-    }
-  ]
-  name "ball_2"
-  boundingObject USE BALL_SHAPE
-  physics Physics {
-  }
 }
 DEF WALL_1 Solid {
   translation 0.5 0.05 0

@@ -1,10 +1,18 @@
 #VRML_SIM R2020a utf8
 WorldInfo {
   basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      material2 "dumbbell"
+      coulombFriction [
+        0
+      ]
+    }
+  ]
 }
 Viewpoint {
-  orientation -0.39217209145187343 0.902568845719898 0.17768097653410833 0.9304518172858955
-  position 1.6222087319131817 1.2428467463884367 1.4864831379235857
+  orientation -0.25656974350984657 0.9426996212036863 0.21328242050792193 1.4453473419619063
+  position 1.6505694285250276 0.9752392525724172 0.3189483311875213
 }
 TexturedBackground {
 }
@@ -30,6 +38,7 @@ WoodenBox {
   size 0.1 0.1 0.1
 }
 E-puck {
+  translation 0 0 0.38
   controller "epuck_avoid_collision"
 }
 DEF BALL_1 Solid {
@@ -54,6 +63,9 @@ DEF BALL_1 Solid {
   name "ball_1"
   boundingObject USE BALL_GEOMETRY
   physics Physics {
+    damping Damping {
+      angular 0
+    }
   }
 }
 DEF BALL_2 Solid {
@@ -73,6 +85,9 @@ DEF BALL_2 Solid {
   name "ball_2"
   boundingObject USE BALL_SHAPE
   physics Physics {
+    damping Damping {
+      angular 0
+    }
   }
 }
 DEF WALL_1 Solid {
@@ -117,4 +132,60 @@ DEF WALL_4 Solid {
   ]
   name "wall_4"
   boundingObject USE WALL_SHAPE
+}
+DEF DUMBBELL Solid {
+  translation 0 0.5 0
+  rotation 1 0 0 1.5708
+  children [
+    DEF G0 Group {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 0.5
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.01
+          }
+        }
+        Transform {
+          translation 0 -0.05 0
+          children [
+            DEF WEIGHT_SHAPE Shape {
+              appearance PBRAppearance {
+                roughness 0.5
+                metalness 0
+              }
+              geometry Sphere {
+                radius 0.03
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.05 0
+          children [
+            USE WEIGHT_SHAPE
+          ]
+        }
+      ]
+    }
+  ]
+  contactMaterial "dumbbell"
+  boundingObject USE G0
+  physics Physics {
+    density -1
+    mass 2
+    centerOfMass [
+      0 0 0
+    ]
+    inertiaMatrix [
+      0.0006738820961705227 8.300087790784231e-05 0.0006738820961705227
+      0 0 0
+    ]
+    damping Damping {
+    }
+  }
 }
