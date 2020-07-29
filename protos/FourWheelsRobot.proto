@@ -2,6 +2,7 @@ PROTO FourWheelsRobot [
   field SFVec3f    translation  0 0 0
   field SFRotation rotation     0 1 0 0
   field SFFloat    bodyMass     1
+  field SFString   name         "proto_robot"
 ]
 {
 	Robot {
@@ -123,6 +124,8 @@ PROTO FourWheelsRobot [
 	      ]
 	      name "ds_left"
 	      boundingObject USE DS_SHAPE
+	      physics Physics {
+      	}
 	    }
 	    DistanceSensor {
 	      translation -0.025 0 0.1
@@ -132,8 +135,11 @@ PROTO FourWheelsRobot [
 	      ]
 	      name "ds_right"
 	      boundingObject USE DS_SHAPE
+	      physics Physics {
+      	}
 	    }
 	  ]
+	  name IS name
 	  boundingObject USE BODY
 	  physics Physics {
 	  	density -1

@@ -3,8 +3,8 @@ WorldInfo {
   basicTimeStep 16
 }
 Viewpoint {
-  orientation -0.2762918486425702 -0.909992317634497 -0.30915497120355034 1.7760464177306412
-  position -1.2159067563053687 0.9753877386099457 0.10805538221262641
+  orientation -0.3169300626683755 -0.8949426876154845 -0.3140587863133164 1.6725175338572214
+  position -1.9595637426718453 1.5551404298315512 0.11864519734575311
 }
 TexturedBackground {
 }
@@ -190,6 +190,8 @@ Robot {
       ]
       name "ds_left"
       boundingObject USE DS_SHAPE
+      physics Physics {
+      }
     }
     DistanceSensor {
       translation -0.025 0 0.1
@@ -199,13 +201,16 @@ Robot {
       ]
       name "ds_right"
       boundingObject USE DS_SHAPE
+      physics Physics {
+      }
     }
   ]
+  name "original_4_wheels_robot"
   boundingObject USE BODY
   physics Physics {
   }
   controller "four_wheeled_collision_avoidance"
 }
 FourWheelsRobot {
-  translation -0.2 0.04 0
+  translation -0.3 0.04 0
 }
