@@ -1,6 +1,6 @@
 ## Webots Tutorials
 
-[Notes](https://github.com/trunc8/Webots_Tutorial/blob/master/Webots_Tutorials_Notes.pdf) and codes written by me while completing the [tutorials](https://cyberbotics.com/doc/guide/tutorials) on the [Webots website](https://cyberbotics.com/)
+[Notes](https://docs.google.com/viewer?url=https://github.com/trunc8/Webots_Tutorial/blob/master/Webots_Tutorials_Notes.pdf?raw=true) and codes written by me while completing the [tutorials](https://cyberbotics.com/doc/guide/tutorials) on the [Webots website](https://cyberbotics.com/)
 
 | Description | World State Screenshot |
 | ------ | ------ |
